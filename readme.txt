@@ -35,3 +35,16 @@ https://zhuanlan.zhihu.com/p/27401519
 
 * 通过CS/DS寄存器左移4位+IP寄存器的值生成20位访问地址
 
+https://www.cnblogs.com/chengxuyuancc/p/3474623.html
+
+typedef struct elf32_phdr{
+  Elf32_Word    p_type;  //段的类型，LOAD，DYNAMIC等
+  Elf32_Off    p_offset;  //段在文件中的偏移量
+  Elf32_Addr    p_vaddr;  //段的物理地址
+  Elf32_Addr    p_paddr;  //段的虚拟地址
+  Elf32_Word    p_filesz;  //段在文件中的大小
+  Elf32_Word    p_memsz;  //段在内存中的大小
+  Elf32_Word    p_flags;  //读写执行标记
+  Elf32_Word    p_align;  //段的对齐
+} Elf32_Phdr;
+

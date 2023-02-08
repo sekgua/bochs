@@ -2,6 +2,18 @@
 
 LOADER_BASE_ADDR equ 0x900
 LOADER_START_SECTOR equ 0x2
+PAGE_DIR_TABLE_POS equ 0x100000
+
+SCREEN_BASE equ 0xb800
+KERNEL_BIN_BASE_ADDR equ 0x70000
+KERNEL_START_SECTOR equ 0x9
+KERNEL_ENTRY_POINT equ 0xc0001500
+
+PG_P equ 1b
+PG_RW_R equ 00b
+PG_RW_W equ 10b
+PG_US_S equ 000b
+PG_US_U equ 100b
 
 ;--------------   gdt描述符属性  -------------
 DESC_G_4K   equ	  1_00000000000000000000000b   	;G在段描述符第23位,将这里设为1,就是使用4K的密度
@@ -33,4 +45,6 @@ RPL2  equ   10b
 RPL3  equ   11b
 TI_GDT	 equ   000b				;访问GDT
 TI_LDT	 equ   100b				;访问LDT
+
+PT_NULL equ 0x0
 
