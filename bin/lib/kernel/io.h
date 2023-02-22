@@ -7,7 +7,8 @@ static inline void outb(uint16_t port,uint8_t data){
     //%b0 表示对应al %W1 表示对应 dx
     //b0表示第一个操作数的低1字节，这里就是eax寄存器的低1字节，也就是al
     //w1表示第二个操作数的低2字节，这里就是edx寄存器的低2字节，也就是dx
-    asm volatile ("outb %b0,%w1"::"a" (data),"Nd" (port));
+    asm volatile ("outb %b0,%w1": :"a" (data),"Nd" (port));
+
 }
 
 //将addr 处的起始的word_cnt个字写入端口port

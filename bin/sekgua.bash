@@ -9,6 +9,7 @@ nasm -f elf -o build/kernel.o kernel/kernel.S
 gcc -I lib/kernel/ -I lib/ -I kernel/ -m32 -c -fno-builtin -o build/interrupt.o kernel/interrupt.c -fno-stack-protector
 gcc -I lib/kernel/ -I lib/ -I kernel/ -m32 -c -fno-builtin -o build/main.o kernel/main.c -fno-stack-protector
 gcc -I lib/kernel/ -I lib/ -I kernel/ -m32 -c -fno-builtin -o build/init.o kernel/init.c -fno-stack-protector
+gcc -I lib/kernel -m32 -c -fno-builtin -o build/timer.o device/timer.c
 ld -m elf_i386 -Ttext 0xc0001500 -e main -o kernel/kernel.bin build/*.o
 
 dd if=/bochs/bin/kernel/kernel.bin of=/bochs/bin/hd60M.img  bs=512 count=200 conv=notrunc seek=9

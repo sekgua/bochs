@@ -1,6 +1,7 @@
 #include "print.h"
 #include "init.h"
-void main(void) 
+#include "debug.h"
+int main(void) 
 {	
 	// put_char('k');
 	// put_char('e');
@@ -40,6 +41,8 @@ void main(void)
 	// put_int(0x00000000);
 	put_str("I am kernel\n");
 	init_all();
-	asm volatile("sti");
+	//asm volatile("sti");
+	ASSERT(2==1);
 	while(1);
+	return 0;
 }
